@@ -1,0 +1,222 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+  
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+  
+body {
+    background-image: url();
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0);
+    height: 100vh;
+    width: 100vh;
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+  
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.vertical-center-row {
+    vertical-align: middle;
+}
+  
+.div-center {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 1em 2em;
+    display: table;
+}
+  
+#brand_logo {
+    width: 75px;
+    border-radius: 50%;
+    /*border: 2px solid rgb(0, 0, 0);*/
+    background: #007bff;
+    padding: 20px;
+    margin-top: 15px;
+}
+  
+.content {
+    display: table-cell;
+    vertical-align: middle;
+}
+  
+.register, .login, .recover {
+    width: 361px;
+    background: white;
+    color: #4d4d4d;
+    text-align: center;
+    border-radius: 1vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    padding-block-end: 3vh;
+    box-shadow: 0 14px 25px rgb(0 0 0 / 16%);
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.w-25 {
+    width: 25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.mb-2, .my-2 {
+    margin-bottom: .5rem!important;
+}
+
+.input-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group-text {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .375rem 1rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #eee;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.btn {
+    font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+    font-weight: 700;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-success {
+    color: #fff;
+    background-color: #22b24c;
+    border-color: #22b24c;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #222;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+
+a {
+    color: #eb6864;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+    .form-control {
+        transition: none;
+    }
+
+    .btn {
+        transition: none;
+    }
+}

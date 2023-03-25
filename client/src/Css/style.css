@@ -1,0 +1,178 @@
+/* Head Background */
+
+.headBackground {
+    background: url("");
+    display: grid;
+    height: 17rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.image {
+    width: 8rem;
+    height: 8rem;
+    border: 2px solid #fff;
+    place-self: center;
+    position: absolute;
+    top: 38px;
+    border-radius: 50%;
+}
+
+
+/* ||||||||||||||||||||| Menu Movil ||||||||||||||||||||||| */
+
+.containerMovil {
+    width: 50vw;
+    height: 50vh;
+    display: none;
+}
+
+
+.menuContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    /* background-color: rgb(25, 195, 28); */
+    height: 2rem;
+    z-index: 10;
+    transition: 1s;
+    color: #ffffff;
+    display: flex;
+    border-radius: 2px;
+    flex-direction: row;
+    gap: 8rem;
+}
+
+#menuIcon {
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+}
+
+.itemsMovil {
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+    flex-direction: row;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.itemsMovil:hover {
+    background-color: rgb(224, 230, 235);
+
+}
+
+
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    backdrop-filter: blur(5px);
+    width: 100vw;
+    height: 3.8rem;
+    position: absolute;
+    left: 0;
+    top: 12.6rem;
+    justify-content: start;
+    padding: 5px 0;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75) inset;
+
+}
+
+.itemsList {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    position: relative;
+    top: 10px;
+    text-decoration: none;
+
+}
+
+.none:hover {
+    background-color: rgb(21, 21, 21);
+
+}
+
+#active {
+    background-color: rgb(0, 0, 0);
+}
+
+.list {
+    margin-left: 5%;
+}
+
+.containerProfile {
+    width: 20em;
+    height: 2.3em;
+    position: absolute;
+    right: 5em;
+    top: 15px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.52) inset;
+    -webkit-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.52) inset;
+    -moz-box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.52) inset;
+}
+
+.userimage {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    place-self: center;
+    border: solid 1px #000000;
+}
+
+.username {
+    grid-column: 2;
+    align-self: center;
+}
+
+.login {
+    grid-column: 6;
+    align-self: center;
+    padding: 6px;
+    border-radius: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    text-transform: uppercase;
+}
+
+.login:hover {
+    transform: scale(1.1);
+}
+
+.w-2 {
+    width: 2rem;
+}
+
+@media screen and (max-width:975px) {
+    .nav {
+        display: none;
+    }
+
+    .containerMovil {
+        display: block;
+    }
+
+}

@@ -1,16 +1,5 @@
 import React, {useState, useContext} from 'react';
 import AuthContext from '../Contexts/AuthContext';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import validator from 'validator';
 import axios from 'axios';
 import { useNavigate, Navigate } from 'react-router-dom';
@@ -25,10 +14,6 @@ export default function SignIn() {
 
     const [ password, setPassword ] = useState("");
     const [ passwordError, setPasswordError ] = useState(null);
-
-    if(!user) {
-        history("/");
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -55,9 +40,11 @@ export default function SignIn() {
 
         try {
             const response = await axios.post("/api/auth/login", data);
-            const { token, user } = response.data;
+            const { token, rows } = response.data;
             localStorage.setItem("token", token);
-            setUser(user);
+            console.log(token);
+            console.log(rows);
+            setUser(rows);
             history("/");
         } catch (e) {
             const message = e.response.data.message;
@@ -73,63 +60,62 @@ export default function SignIn() {
     };
 
     return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                sx={{
-                    marginTop: 8,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                }}
-                >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    <form onSubmit={handleSubmit} sx={{ mt: 1 }}>
-                        <TextField
-                            required
-                            fullWidth
-                            label="Email Address"
-                            autoFocus
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            error={!!emailError}
-                            sx={{ mb: 1 }}
-                        />
-                        <TextField
-                            required
-                            fullWidth
-                            label="Password"
-                            type="password"
-                            autoComplete="current-password"
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            error={!!passwordError}
-                            helperText={passwordError}
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                        >
-                        Sign In
-                        </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                Forgot password?
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </form>
-                </Box>
-            </Container>
-        </ThemeProvider>
+        <main>
+            <div className="div-center">
+                <div className="content login">
+                    <h1 className="text-center mb-3">
+                        <img src="" alt="Logo" id="brand-logo" />
+                    </h1>
+                    <div className="card card-body w-25">
+                        <h1 className="text-center mb-3">PANEL DE USUARIO</h1>
+                        <p className="text-center mb-3">Introduce tu correo electronico y contraseña</p>
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <div className="form-group">
+                                    <div className="input-group mb-3">
+                                        <span className="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+                                        <input 
+                                        id="email" 
+                                        name="email" 
+                                        type="email" 
+                                        className="form-control" 
+                                        placeholder="Correo eléctronico" 
+                                        autoComplete="current-email"
+                                        value={email}
+                                        error={!!emailError}
+                                        helperText={emailError}
+                                        required
+                                        fullWidth
+                                        autoFocus
+                                        onChange={e => setEmail(e.value.email)}/>
+                                    </div>
+                                    <div className="input-group mb-2">
+                                        <span className="input-group-text"><i className="fas fa-key"></i></span>
+                                        <input 
+                                        type="password" 
+                                        name="password" 
+                                        id="password" 
+                                        className="form-control" 
+                                        placeholder="Contraseña"
+                                        autoComplete='currrent-password'
+                                        value={password}
+                                        error={!!passwordError}
+                                        helperText={passwordError}
+                                        required
+                                        fullWidth
+                                        onChange={e => setPassword(e.value.password)}/>
+                                    </div>
+                                </div>
+                                <button type="submit" className="btn btn-sucess btn-block" fullWidth variant="contained">Ingresar</button>
+                                <br />
+                                <a href="/reset">
+                                    <p className="text-center mb-3">¿Haz olvidado la contraseña?</p>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
     );
 }

@@ -4,8 +4,34 @@ const {sql} = require("../config/database");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
-router.get('/init', async (req, res) => {
+router.post('/init', async (req, res) => {
+    console.log(req.body.token);
     const {userId} = jwt.verify(req.body.token, 'app');
+    function query() {
+        sql.query("SELECT * FROM cuentas WHERE ID = ?", [userId], (err, rows) => {
+            if (err) console.log(err);
+            if (rows.lenght < 0) res.status(404).send({
+                message: "user_not_found"
+            });
+            if (!rows[0]) res.status(404).send({
+                message: "user_not_found"
+            });
+            if(rows) finish(rows[0]);
+            console.log(rows);
+        });
+    }
+    function finish(rows) {
+        console.log(rows);
+
+        res.send({
+            rows
+        });
+    }
+    await query();
+});
+
+router.get("/tetas", (req, res) => {
+    res.send({ ID: "tetas"});
 })
 
 router.post('/login', async (req, res) => {
@@ -34,13 +60,19 @@ router.post('/login', async (req, res) => {
             message: "wrong_password"
         });
 
+        console.log(rows);
+
         const token = await jwt.sign({ userId: rows.ID }, 'app');
+        console.log(token);
+
+        req.session.username = rows.Nombre;
+        req.session.ID = rows.ID;
+        req.session.save();
 
         res.send({
             token,
             rows
         });
-
     }
 
     await query();
